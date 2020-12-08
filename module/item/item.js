@@ -115,6 +115,7 @@ export class DemonlordItem extends Item {
     const actor = this._getChatCardActor(token)
     const item = li.children[0]
     const damageformular = item.dataset.damage
+    const damagetype = item.dataset.damagetype
 
     const damageRoll = new Roll(damageformular, {})
     damageRoll.roll()
@@ -137,6 +138,9 @@ export class DemonlordItem extends Item {
         },
         isCreature: {
           value: actor.data.type == 'creature'
+        },
+        damagetype: {
+          value: damagetype
         }
       },
       diceData

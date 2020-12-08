@@ -4,6 +4,17 @@
         <div class="header-fields">
             <div class="gridrow"><input name="name" type="text" value="{{item.name}}" placeholder="Ammo Name" /></div>
         </div>
+        <div class="template-type">{{item.type}}</div>
+        {{#if isGM}}
+        <div class="togglegm">
+            <label class="switchBig">
+                <input type="checkbox" id="data.editPath" name="data.editPath" {{checked data.editPath}}>
+                <div class="slider round">
+                    <span class="on">Edit</span><span class="off">View</span>
+                </div>
+            </label>
+        </div>
+        {{/if}}
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -14,6 +25,7 @@
     </nav>
 
     {{!-- Sheet Body --}}
+    {{#if data.editPath}}
     <section class="sheet-body">
         <section class="sheet-content">
             <div class="tab paths" data-group="primary" data-tab="attributes">

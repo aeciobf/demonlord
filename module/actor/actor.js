@@ -92,7 +92,7 @@ export class DemonlordActor extends Actor {
                   if ($level.attributeWillSelected) {
                     data.attributes.will.value += parseInt($level.attributeWill)
                   }
-*/
+
                   // pathHealthBonus += $level.characteristicsHealth
 
                   switch (path.data.type) {
@@ -127,6 +127,7 @@ export class DemonlordActor extends Actor {
                 .forEach(function ($level) {
                   // pathHealthBonus += $level.characteristicsHealth
 
+
                   switch (path.data.type) {
                     case 'novice':
                       data.paths.novice = path.name
@@ -149,7 +150,7 @@ export class DemonlordActor extends Actor {
       // Calculate Health and Healing Rate
       /*
       if (game.settings.get('demonlord', 'reverseDamage')) {
-        if (data.characteristics.health.value == 0) {
+        if (data.characteristics.health.value < 0) {
           data.characteristics.health.value =
             parseInt(data.attributes.strength.value) +
             parseInt(ancestry.data.characteristics?.healthmodifier) +
@@ -311,16 +312,21 @@ export class DemonlordActor extends Actor {
     }
 
     if (ancestryFixedArmor) {
-      data.characteristics.defense += pathDefenseBonus + defenseBonus
+      data.characteristics.defense +=
+        pathDefenseBonus + defenseBonus + characterbuffs.defensebonus
     } else if (armorpoint >= 11) {
       data.characteristics.defense =
-        parseInt(armorpoint) + parseInt(defenseBonus) + pathDefenseBonus
+        parseInt(armorpoint) +
+        parseInt(defenseBonus) +
+        pathDefenseBonus +
+        characterbuffs.defensebonus
     } else {
       data.characteristics.defense =
         parseInt(data.characteristics.defense) +
         parseInt(defenseBonus) +
         parseInt(agilitypoint) +
-        pathDefenseBonus
+        pathDefenseBonus +
+        characterbuffs.defensebonus
     }
 
     if (data.characteristics.defense > 25) data.characteristics.defense = 25
@@ -328,12 +334,13 @@ export class DemonlordActor extends Actor {
     characterbuffs.speedbonus += speedPenalty
 
     /*
+
     if (game.settings.get('demonlord', 'useHomebrewMode')) {
       data.characteristics.health.healingrate = Math.floor(
         parseInt(data.characteristics.health.max) / 4
       )
     }
-*/
+    */
 
     // Afflictions
     if (data.afflictions.slowed) {
@@ -752,6 +759,10 @@ export class DemonlordActor extends Actor {
 
       attackRoll = new Roll(diceformular, {})
       attackRoll.roll()
+    } else {
+      ui.notifications.error(
+        game.i18n.localize('DL.DialogWarningWeaponAttackModifier')
+      )
     }
 
     // Format Dice
@@ -761,7 +772,7 @@ export class DemonlordActor extends Actor {
 
     // Plus20 roll
     let plus20 = false
-    if (targetNumber != undefined) {
+    if (targetNumber != undefined && attackRoll != null) {
       plus20 = !!(
         attackRoll._total >= 20 &&
         attackRoll._total >= parseInt(targetNumber) + 5
@@ -808,7 +819,8 @@ export class DemonlordActor extends Actor {
         },
         didHit: {
           value: !!(
-            targetNumber == undefined || attackRoll._total >= targetNumber
+            targetNumber == undefined ||
+            (attackRoll != null && attackRoll._total >= targetNumber)
           )
         },
         attack: {
@@ -837,6 +849,12 @@ export class DemonlordActor extends Actor {
         },
         damageFormular: {
           value: weapon.data.data.action.damage + buffs.attackdamagebonus
+        },
+        damageType: {
+          value: weapon.data.data.action.damagetype
+        },
+        damageTypes: {
+          value: weapon.data.data.damagetypes
         },
         damageExtra20plusFormular: {
           value:
@@ -1138,6 +1156,15 @@ export class DemonlordActor extends Actor {
         damageFormular: {
           value: damageformular
         },
+        damageType: {
+          value:
+            talent.data.vs.damageactive && talent.data.vs.damage
+              ? talent.data?.vs?.damagetype
+              : talent.data?.damagetype
+        },
+        damageTypes: {
+          value: talent.data?.vs.damagetypes
+        },
         damageExtra20plusFormular: {
           value: talent.data?.action?.plus20
         },
@@ -1164,6 +1191,9 @@ export class DemonlordActor extends Actor {
         },
         pureDamage: {
           value: talent.data?.damage
+        },
+        pureDamageType: {
+          value: talent.data?.damagetype
         }
       },
       diceData
@@ -1432,6 +1462,12 @@ export class DemonlordActor extends Actor {
         },
         damageFormular: {
           value: spell.data.action?.damage
+        },
+        damageType: {
+          value: spell.data.action?.damagetype
+        },
+        damageTypes: {
+          value: spell.data?.damagetypes
         },
         damageExtra20plusFormular: {
           value: spell.data.action?.plus20damage
@@ -2031,7 +2067,6 @@ export class DemonlordActor extends Actor {
       const currentDamage = parseInt(
         targetActor.data.data.characteristics.health.value
       )
-      alert(damage)
       if (game.settings.get('demonlord', 'reverseDamage')) {
         if (currentDamage - damage <= 0) {
           await targetActor.update({
