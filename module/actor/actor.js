@@ -26,7 +26,6 @@ export class DemonlordActor extends Actor {
    */
   _prepareCharacterData (actorData) {
     const data = actorData.data
-    let will
     data.characteristics.insanity.max = data.attributes.will.value
 
     const characterbuffs = this.generateCharacterBuffs()

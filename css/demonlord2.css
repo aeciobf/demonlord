@@ -2613,6 +2613,10 @@
   font-size: 12px;
 }
 
+.demonlord2 .items-list .item .effect-source {
+  text-transform: capitalize;
+}
+
 .demonlord2 .items-list .item .effect-controls {
   border: none;
   -webkit-box-flex: 0;
