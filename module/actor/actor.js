@@ -92,7 +92,7 @@ export class DemonlordActor extends Actor {
                   if ($level.attributeWillSelected) {
                     data.attributes.will.value += parseInt($level.attributeWill)
                   }
-
+                  */
                   // pathHealthBonus += $level.characteristicsHealth
 
                   switch (path.data.type) {
@@ -126,7 +126,6 @@ export class DemonlordActor extends Actor {
                 })
                 .forEach(function ($level) {
                   // pathHealthBonus += $level.characteristicsHealth
-
 
                   switch (path.data.type) {
                     case 'novice':
@@ -199,7 +198,7 @@ export class DemonlordActor extends Actor {
       data.attributes.perception.value =
         parseInt(data.attributes.intellect.value) +
         parseInt(ancestry.data.characteristics.perceptionmodifier)
-*/
+      */
       if (parseInt(ancestry.data.characteristics?.defensemodifier) > 10) {
         data.characteristics.defense = parseInt(
           ancestry.data.characteristics?.defensemodifier
