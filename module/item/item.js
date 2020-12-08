@@ -2,7 +2,6 @@
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-import { PathLevel } from '../pathlevel.js'
 import { FormatDice, FormatDiceOld } from '../dice.js'
 export class DemonlordItem extends Item {
   /**
@@ -189,7 +188,7 @@ export class DemonlordItem extends Item {
         game.i18n.localize('DL.DialogWarningActorsNotSelected')
       )
     }
-
+    /*
     selected.forEach((token) => {
       if (token.data.actorData.data?.characteristics != undefined) {
         const tokenData = duplicate(token.data)
@@ -231,6 +230,7 @@ export class DemonlordItem extends Item {
         token.actor.update(actorData)
       }
     })
+    */
   }
 
   static async _onChatUseTalent (event) {
