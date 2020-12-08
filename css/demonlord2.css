@@ -508,8 +508,8 @@
   background-attachment: local;
 }
 
-.demonlord2.item form input[type="text"]:focus,
-.demonlord2.item form input[type="text"]:hover {
+.demonlord2.item form input[type='text']:focus,
+.demonlord2.item form input[type='text']:hover {
   background: rgba(0, 0, 0, 0.3);
   height: 20px;
   padding-left: 6px;
@@ -577,7 +577,7 @@
 }
 
 .demonlord2.item .sheet-header .header-fields {
-  font-family: "Roboto", system, -apple-system, sans-serif;
+  font-family: 'Roboto', system, -apple-system, sans-serif;
   font-size: 8px;
   font-weight: 700;
   line-height: 1;
@@ -588,7 +588,7 @@
   margin-left: 0px;
 }
 
-.demonlord2.item .sheet-header .header-fields input[type="text"] {
+.demonlord2.item .sheet-header .header-fields input[type='text'] {
   width: 100%;
   font-family: "IM Fell English SC", serif;
   font-weight: 500;
@@ -600,7 +600,7 @@
   padding: 5px;
 }
 
-.demonlord2.item .sheet-header .header-fields input[type="text"]:focus {
+.demonlord2.item .sheet-header .header-fields input[type='text']:focus {
   background: rgba(0, 0, 0, 0.5);
   padding-left: 6px;
 }
@@ -634,7 +634,7 @@
 }
 
 .demonlord2.item .itemsheet-header .header-fields .title {
-  font-family: "IM Fell English SC", serif;
+  font-family: 'IM Fell English SC', serif;
   font-weight: 500;
   font-size: 20px;
   font-weight: normal;
@@ -818,25 +818,25 @@
   border-radius: 0px;
 }
 
-.demonlord2.item .items-list li.level div.level input[type="checkbox"],
-.demonlord2.item .items-list li.level div.attributes input[type="checkbox"],
-.demonlord2.item .items-list li.level div.characteristics input[type="checkbox"],
-.demonlord2.item .items-list li.level div.talents input[type="checkbox"],
-.demonlord2.item .items-list li.level div.spells input[type="checkbox"],
-.demonlord2.item .items-list li.level div.equipment input[type="checkbox"],
-.demonlord2.item .items-list li.level div.language input[type="checkbox"],
-.demonlord2.item .items-list li.level div.magic input[type="checkbox"] {
+.demonlord2.item .items-list li.level div.level input[type='checkbox'],
+.demonlord2.item .items-list li.level div.attributes input[type='checkbox'],
+.demonlord2.item .items-list li.level div.characteristics input[type='checkbox'],
+.demonlord2.item .items-list li.level div.talents input[type='checkbox'],
+.demonlord2.item .items-list li.level div.spells input[type='checkbox'],
+.demonlord2.item .items-list li.level div.equipment input[type='checkbox'],
+.demonlord2.item .items-list li.level div.language input[type='checkbox'],
+.demonlord2.item .items-list li.level div.magic input[type='checkbox'] {
   margin-top: -1px;
 }
 
-.demonlord2.item .items-list li.level div.level input[type="checkbox"]:hover,
-.demonlord2.item .items-list li.level div.attributes input[type="checkbox"]:hover,
-.demonlord2.item .items-list li.level div.characteristics input[type="checkbox"]:hover,
-.demonlord2.item .items-list li.level div.talents input[type="checkbox"]:hover,
-.demonlord2.item .items-list li.level div.spells input[type="checkbox"]:hover,
-.demonlord2.item .items-list li.level div.equipment input[type="checkbox"]:hover,
-.demonlord2.item .items-list li.level div.language input[type="checkbox"]:hover,
-.demonlord2.item .items-list li.level div.magic input[type="checkbox"]:hover {
+.demonlord2.item .items-list li.level div.level input[type='checkbox']:hover,
+.demonlord2.item .items-list li.level div.attributes input[type='checkbox']:hover,
+.demonlord2.item .items-list li.level div.characteristics input[type='checkbox']:hover,
+.demonlord2.item .items-list li.level div.talents input[type='checkbox']:hover,
+.demonlord2.item .items-list li.level div.spells input[type='checkbox']:hover,
+.demonlord2.item .items-list li.level div.equipment input[type='checkbox']:hover,
+.demonlord2.item .items-list li.level div.language input[type='checkbox']:hover,
+.demonlord2.item .items-list li.level div.magic input[type='checkbox']:hover {
   width: 16px;
   margin-top: 0px;
 }
@@ -953,25 +953,25 @@
   margin: 0 10px;
 }
 
-.demonlord2.item .items-list li.level div.level .twoset input[type="radio"],
-.demonlord2.item .items-list li.level div.attributes .twoset input[type="radio"],
-.demonlord2.item .items-list li.level div.characteristics .twoset input[type="radio"],
-.demonlord2.item .items-list li.level div.talents .twoset input[type="radio"],
-.demonlord2.item .items-list li.level div.spells .twoset input[type="radio"],
-.demonlord2.item .items-list li.level div.equipment .twoset input[type="radio"],
-.demonlord2.item .items-list li.level div.language .twoset input[type="radio"],
-.demonlord2.item .items-list li.level div.magic .twoset input[type="radio"] {
+.demonlord2.item .items-list li.level div.level .twoset input[type='radio'],
+.demonlord2.item .items-list li.level div.attributes .twoset input[type='radio'],
+.demonlord2.item .items-list li.level div.characteristics .twoset input[type='radio'],
+.demonlord2.item .items-list li.level div.talents .twoset input[type='radio'],
+.demonlord2.item .items-list li.level div.spells .twoset input[type='radio'],
+.demonlord2.item .items-list li.level div.equipment .twoset input[type='radio'],
+.demonlord2.item .items-list li.level div.language .twoset input[type='radio'],
+.demonlord2.item .items-list li.level div.magic .twoset input[type='radio'] {
   margin-top: -2px;
 }
 
-.demonlord2.item .items-list li.level div.level .twoset input[type="radio"]:hover,
-.demonlord2.item .items-list li.level div.attributes .twoset input[type="radio"]:hover,
-.demonlord2.item .items-list li.level div.characteristics .twoset input[type="radio"]:hover,
-.demonlord2.item .items-list li.level div.talents .twoset input[type="radio"]:hover,
-.demonlord2.item .items-list li.level div.spells .twoset input[type="radio"]:hover,
-.demonlord2.item .items-list li.level div.equipment .twoset input[type="radio"]:hover,
-.demonlord2.item .items-list li.level div.language .twoset input[type="radio"]:hover,
-.demonlord2.item .items-list li.level div.magic .twoset input[type="radio"]:hover {
+.demonlord2.item .items-list li.level div.level .twoset input[type='radio']:hover,
+.demonlord2.item .items-list li.level div.attributes .twoset input[type='radio']:hover,
+.demonlord2.item .items-list li.level div.characteristics .twoset input[type='radio']:hover,
+.demonlord2.item .items-list li.level div.talents .twoset input[type='radio']:hover,
+.demonlord2.item .items-list li.level div.spells .twoset input[type='radio']:hover,
+.demonlord2.item .items-list li.level div.equipment .twoset input[type='radio']:hover,
+.demonlord2.item .items-list li.level div.language .twoset input[type='radio']:hover,
+.demonlord2.item .items-list li.level div.magic .twoset input[type='radio']:hover {
   margin-top: -4px;
 }
 
@@ -1052,7 +1052,7 @@
 .demonlord2.item .items-list li.level div.language .drop-hover::before,
 .demonlord2.item .items-list li.level div.magic .drop-hover::before {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -1445,7 +1445,7 @@
   text-align: left;
 }
 
-.demonlord2.item .items-list .talent input[type="checkbox"] {
+.demonlord2.item .items-list .talent input[type='checkbox'] {
   float: left;
   height: 12px;
   margin: 2px 0 0 -3px;
@@ -2275,7 +2275,7 @@
   height: 16px;
   border-bottom: 1px solid var(--demonlord-red);
   font-weight: bold;
-  font-family: "IM Fell English SC", serif;
+  font-family: 'IM Fell English SC', serif;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -2434,6 +2434,48 @@
   height: 16px;
 }
 
+.demonlord2 .items-list .item-list {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.demonlord2 .items-list .items-header {
+  border-bottom: 1px solid var(--demonlord-red);
+  font-weight: bold;
+  font-family: "IM Fell English SC", serif;
+  text-transform: uppercase;
+  height: 16px;
+  margin: 2px 0;
+  padding: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.demonlord2 .items-list .items-header > * {
+  font-size: 10px;
+  text-align: center;
+}
+
+.demonlord2 .items-list .items-header .item-name {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  padding-left: 5px;
+  font-size: 10px;
+}
+
+.demonlord2 .items-list .items-header .effect-controls {
+  text-align: right;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 60px;
+  flex: 0 0 60px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 .demonlord2 .items-list .itemamount {
   float: right;
   margin-right: 15px;
@@ -2569,10 +2611,6 @@
 .demonlord2 .items-list .item .effect-controls {
   text-align: center;
   font-size: 12px;
-}
-
-.demonlord2 .items-list .item .effect-source {
-  text-transform: capitalize;
 }
 
 .demonlord2 .items-list .item .effect-controls {
@@ -2775,7 +2813,8 @@
   top: 52px;
 }
 
-.demonlord2 .switch, .demonlord2 .switchBig {
+.demonlord2 .switch,
+.demonlord2 .switchBig {
   position: relative;
   display: inline-block;
   width: 48px;
@@ -2787,7 +2826,8 @@
   height: 14px;
 }
 
-.demonlord2 .switch input, .demonlord2 .switchBig input {
+.demonlord2 .switch input,
+.demonlord2 .switchBig input {
   display: none;
 }
 
@@ -2810,7 +2850,7 @@
 
 .demonlord2 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 8px;
   width: 8px;
   left: 2px;

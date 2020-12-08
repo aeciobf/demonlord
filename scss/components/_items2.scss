@@ -1,13 +1,13 @@
 .window-content {
-  background: url("../ui/sidebar_background.jpg"), url("paper.jpg");
+  background: url('../ui/sidebar_background.jpg'), url('paper.jpg');
   background-repeat: repeat-x, no-repeat;
   background-size: auto 96px, cover;
   background-attachment: local;
 }
 
 form {
-  input[type="text"]:focus,
-  input[type="text"]:hover {
+  input[type='text']:focus,
+  input[type='text']:hover {
     background: rgba(0, 0, 0, 0.3);
     height: 20px;
     padding-left: 6px;
@@ -70,7 +70,7 @@ form {
   }
 
   .header-fields {
-    font-family: "Roboto", system, -apple-system, sans-serif;
+    font-family: 'Roboto', system, -apple-system, sans-serif;
     font-size: 8px;
     font-weight: 700;
     line-height: 1;
@@ -79,7 +79,7 @@ form {
     color: #fff;
     margin-top: 4px;
     margin-left: 0px;
-    input[type="text"] {
+    input[type='text'] {
       width: 100%;
       font-family: $font-header;
       font-weight: 500;
@@ -90,7 +90,7 @@ form {
       height: 26px;
       padding: 5px;
     }
-    input[type="text"]:focus {
+    input[type='text']:focus {
       background: rgba(0, 0, 0, 0.5);
       padding-left: 6px;
     }
@@ -124,13 +124,13 @@ form {
     margin-left: 5px;
 
     .title {
-      font-family: "IM Fell English SC", serif;
+      font-family: 'IM Fell English SC', serif;
       font-weight: 500;
       font-size: 20px;
       font-weight: normal;
       text-transform: none;
       margin-top: 5px;
-      margin-left: 5px
+      margin-left: 5px;
     }
   }
 }
@@ -283,7 +283,7 @@ nav.sheet-tabs {
         border-radius: 0px;
       }
 
-      input[type="checkbox"] {
+      input[type='checkbox'] {
         margin-top: -1px;
 
         &:hover {
@@ -335,7 +335,7 @@ nav.sheet-tabs {
           margin: 0 10px;
         }
 
-        input[type="radio"] {
+        input[type='radio'] {
           margin-top: -2px;
 
           &:hover {
@@ -380,7 +380,7 @@ nav.sheet-tabs {
 
         &::before {
           display: block;
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
@@ -695,7 +695,7 @@ nav.sheet-tabs {
       text-align: left;
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       float: left;
       height: 12px;
       margin: 2px 0 0 -3px;
