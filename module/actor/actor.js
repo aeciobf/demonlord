@@ -36,26 +36,29 @@ export class DemonlordActor extends Actor {
     )
 
     let savedAncestry = null
-    let pathHealthBonus = 0
+    const pathHealthBonus = 0
     let ancestryFixedArmor = false
 
     for (const ancestry of ancestries) {
       savedAncestry = ancestry
 
       if (!game.settings.get('demonlord', 'useHomebrewMode')) {
+        /*
         data.attributes.strength.value = parseInt(
           ancestry.data.attributes?.strength.value
         )
+
         data.attributes.agility.value = parseInt(
           ancestry.data.attributes?.agility.value
         )
+
         data.attributes.intellect.value = parseInt(
           ancestry.data.attributes?.intellect.value
         )
         data.attributes.will.value = parseInt(
           ancestry.data.attributes?.will.value
         )
-
+*/
         // Paths
         if (data.level > 0) {
           for (let i = 1; i <= data.level; i++) {
@@ -69,11 +72,13 @@ export class DemonlordActor extends Actor {
                 })
                 .forEach(function ($level) {
                   // Attributes
+                  /*
                   if ($level.attributeStrengthSelected) {
                     data.attributes.strength.value += parseInt(
                       $level.attributeStrength
                     )
                   }
+
                   if ($level.attributeAgilitySelected) {
                     data.attributes.agility.value += parseInt(
                       $level.attributeAgility
@@ -87,8 +92,54 @@ export class DemonlordActor extends Actor {
                   if ($level.attributeWillSelected) {
                     data.attributes.will.value += parseInt($level.attributeWill)
                   }
+*/
+                  // pathHealthBonus += $level.characteristicsHealth
 
-                  pathHealthBonus += $level.characteristicsHealth
+                  switch (path.data.type) {
+                    case 'novice':
+                      data.paths.novice = path.name
+                      break
+                    case 'expert':
+                      data.paths.expert = path.name
+                      break
+                    case 'master':
+                      data.paths.master = path.name
+                      break
+                    default:
+                      break
+                  }
+                })
+            })
+          }
+        }
+      } else {
+        // Paths
+        if (data.level > 0) {
+          for (let i = 1; i <= data.level; i++) {
+            const paths = this.getEmbeddedCollection('OwnedItem').filter(
+              (e) => e.type === 'path'
+            )
+            paths.forEach((path) => {
+              path.data.levels
+                .filter(function ($level) {
+                  return $level.level == i
+                })
+                .forEach(function ($level) {
+                  // pathHealthBonus += $level.characteristicsHealth
+
+                  switch (path.data.type) {
+                    case 'novice':
+                      data.paths.novice = path.name
+                      break
+                    case 'expert':
+                      data.paths.expert = path.name
+                      break
+                    case 'master':
+                      data.paths.master = path.name
+                      break
+                    default:
+                      break
+                  }
                 })
             })
           }
@@ -96,6 +147,7 @@ export class DemonlordActor extends Actor {
       }
 
       // Calculate Health and Healing Rate
+      /*
       if (game.settings.get('demonlord', 'reverseDamage')) {
         if (data.characteristics.health.value == 0) {
           data.characteristics.health.value =
@@ -116,6 +168,8 @@ export class DemonlordActor extends Actor {
           characterbuffs.healthbonus +
           pathHealthBonus
       }
+      */
+      /*
       if (data.level >= 4) {
         if (game.settings.get('demonlord', 'reverseDamage')) {
           if (data.characteristics.health.value == 0) {
@@ -132,15 +186,19 @@ export class DemonlordActor extends Actor {
           )
         }
       }
-      data.characteristics.health.healingrate =
-        Math.floor(parseInt(data.characteristics.health.max) / 4) +
-        parseInt(ancestry.data.characteristics?.healingratemodifier)
+      */
+      data.characteristics.health.healingrate = Math.floor(
+        parseInt(data.characteristics.health.max) / 4
+      )
+      // +
+      // parseInt(ancestry.data.characteristics?.healingratemodifier)
       // ******************
 
+      /*
       data.attributes.perception.value =
         parseInt(data.attributes.intellect.value) +
         parseInt(ancestry.data.characteristics.perceptionmodifier)
-
+*/
       if (parseInt(ancestry.data.characteristics?.defensemodifier) > 10) {
         data.characteristics.defense = parseInt(
           ancestry.data.characteristics?.defensemodifier
@@ -161,6 +219,7 @@ export class DemonlordActor extends Actor {
       data.characteristics.size = ancestry.data.characteristics.size
     }
 
+    /*
     if (savedAncestry == null && this.data.type != 'creature') {
       data.attributes.perception.value = parseInt(
         data.attributes.intellect.value
@@ -179,8 +238,9 @@ export class DemonlordActor extends Actor {
         data.characteristics.health.max =
           parseInt(data.attributes.strength.value) + characterbuffs.healthbonus
       }
-    }
 
+    }
+*/
     // Paths
     let pathDefenseBonus = 0
     if (data.level > 0) {
@@ -202,8 +262,8 @@ export class DemonlordActor extends Actor {
                 parseInt($level.characteristicsPower)
               pathDefenseBonus = $level.characteristicsDefense
               data.characteristics.speed += $level.characteristicsSpeed
-              data.attributes.perception.value +=
-                $level.characteristicsPerception
+              // data.attributes.perception.value +=
+              // $level.characteristicsPerception
             })
         })
       }
@@ -267,6 +327,14 @@ export class DemonlordActor extends Actor {
 
     characterbuffs.speedbonus += speedPenalty
 
+    /*
+    if (game.settings.get('demonlord', 'useHomebrewMode')) {
+      data.characteristics.health.healingrate = Math.floor(
+        parseInt(data.characteristics.health.max) / 4
+      )
+    }
+*/
+
     // Afflictions
     if (data.afflictions.slowed) {
       data.characteristics.speed = Math.floor(
@@ -315,7 +383,7 @@ export class DemonlordActor extends Actor {
     // Finally, create the item!
     return await this.createOwnedItem(itemData)
   }
-
+  /*
   async _onDeleteEmbeddedEntity (embeddedName, child, options, userId) {
     const characterbuffs = this.generateCharacterBuffs()
 
@@ -354,6 +422,7 @@ export class DemonlordActor extends Actor {
       })
     }
   }
+  */
 
   rollChallenge (attribute) {
     if (typeof attribute === 'string' || attribute instanceof String) {
@@ -1929,6 +1998,7 @@ export class DemonlordActor extends Actor {
   }
 
   async removeCharacterBonuses (talent) {
+    /*
     const healthbonus =
       talent.data.bonuses?.defenseactive && talent.data.bonuses?.health != ''
         ? parseInt(talent.data.bonuses?.health)
@@ -1941,7 +2011,8 @@ export class DemonlordActor extends Actor {
       talent.data.bonuses?.speedactive && talent.data.bonuses?.speed != ''
         ? parseInt(talent.data.bonuses?.speed)
         : 0
-
+    */
+    /*
     await this.update({
       'data.characteristics.health.max':
         parseInt(this.data.data.characteristics.health.max) - healthbonus,
@@ -1951,6 +2022,7 @@ export class DemonlordActor extends Actor {
         parseInt(this.data.data.characteristics.speed.value) - speedbonus,
       'data.activebonuses': false
     })
+    */
   }
 
   async addDamageToTarget (damage) {

@@ -10,6 +10,7 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="attributes">{{localize "DL.TabsAttributes"}}</a>
         <a class="item" data-tab="description">{{localize "DL.TabsDescription"}}</a>
+        <a class="item" data-tab="effects">{{localize "DL.TabsEffects"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -141,6 +142,10 @@
                 <div class="descriptionblock">
                     {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
                 </div>
+            </div>
+            {{!-- Effects Tab --}}
+            <div class="tab effects" data-group="primary" data-tab="effects">
+                {{> systems/demonlord/templates/tabs/effects.html}}
             </div>
         </section>
     </section>

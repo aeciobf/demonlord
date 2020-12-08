@@ -3,6 +3,11 @@
  * @extends {ItemSheet}
  */
 import { PathLevel, PathLevelItem } from '../pathlevel.js'
+import {
+  onManageActiveEffect,
+  prepareActiveEffectCategories
+} from '../effects.js'
+
 export class DemonlordPathSetup extends ItemSheet {
   /** @override */
   static get defaultOptions () {
@@ -27,6 +32,8 @@ export class DemonlordPathSetup extends ItemSheet {
   /** @override */
   getData () {
     const data = super.getData()
+    data.isGM = game.user.isGM
+    data.effects = prepareActiveEffectCategories(this.entity.effects)
 
     if (this.item.data.type == 'path') {
       this._prepareLevels(data)
@@ -65,6 +72,12 @@ export class DemonlordPathSetup extends ItemSheet {
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return
+
+    if (this.isEditable) {
+      html
+        .find('.effect-control')
+        .click((ev) => onManageActiveEffect(ev, this.entity))
+    }
 
     html.find('.add-level').click((ev) => {
       this.addLevel(ev)

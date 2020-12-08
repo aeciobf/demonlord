@@ -286,6 +286,43 @@
       width: 50px;
       height: 16px;
     }
+
+    .item-name {
+      color: #000;
+      flex: 2;
+
+      .item-image {
+        flex: 0 0 30px;
+        height: 30px;
+        background-size: 30px;
+        border: none;
+        margin-right: 5px;
+      }
+      h4 {
+        margin: 0;
+        white-space: nowrap;
+        overflow-x: hidden;
+      }
+    }
+
+    .effect-source,
+    .effect-duration,
+    .effect-controls {
+      text-align: center;
+      font-size: 12px;
+    }
+    .effect-source {
+      text-transform: capitalize;
+    }
+    .effect-controls {
+      border: none;
+      flex: 0 0 60px;
+      justify-content: space-between;
+
+      .effect-control {
+        margin: 0;
+      }
+    }
   }
 
   .feature {

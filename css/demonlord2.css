@@ -2487,6 +2487,54 @@
   height: 16px;
 }
 
+.demonlord2 .items-list .item .item-name {
+  color: #000;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+.demonlord2 .items-list .item .item-name .item-image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 30px;
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+
+.demonlord2 .items-list .item .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.demonlord2 .items-list .item .effect-source,
+.demonlord2 .items-list .item .effect-duration,
+.demonlord2 .items-list .item .effect-controls {
+  text-align: center;
+  font-size: 12px;
+}
+
+.demonlord2 .items-list .item .effect-source {
+  text-transform: capitalize;
+}
+
+.demonlord2 .items-list .item .effect-controls {
+  border: none;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 60px;
+  flex: 0 0 60px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.demonlord2 .items-list .item .effect-controls .effect-control {
+  margin: 0;
+}
+
 .demonlord2 .items-list .feature {
   font-size: 11px;
   margin-top: 10px;

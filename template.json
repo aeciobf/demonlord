@@ -43,10 +43,10 @@
                 },
                 "characteristics": {
                     "health": {
-                        "max": 0,
+                        "max": 10,
                         "value": 0,
                         "injured": false,
-                        "healingrate": 0
+                        "healingrate": 2
                     },
                     "defense": 0,
                     "size": "1",
@@ -91,6 +91,12 @@
                     "incapacitated": false,
                     "disabled": false,
                     "dying": false
+                },
+                "bonuses": {
+                    "attackbonus": 0,
+                    "challengebonus": 0,
+                    "damagebonus": "",
+                    "damagebonus20plus": ""
                 }
             }
         },
