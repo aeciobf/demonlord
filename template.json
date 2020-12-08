@@ -132,7 +132,7 @@
                 "expert": "",
                 "master": ""
             },
-            "apperance": {
+            "appearance": {
                 "age": 0,
                 "sex": "",
                 "eyes": "",
@@ -166,7 +166,6 @@
             "armor",
             "ammo",
             "specialaction",
-            "magic",
             "endoftheround",
             "mod",
             "ancestry",
@@ -184,13 +183,15 @@
                 "against": "",
                 "damageactive": true,
                 "damage": "",
+                "damagetype": "",
                 "boonsbanesactive": true,
                 "boonsbanes": "",
                 "plus20active": true,
                 "plus20": "",
                 "plus20damage": "",
                 "defense": "",
-                "defenseboonsbanes": ""
+                "defenseboonsbanes": "",
+                "damagetypes": []
             }
         },
         "item": {
@@ -270,8 +271,10 @@
                 "against": "",
                 "damageactive": true,
                 "damage": "",
+                "damagetype": "",
                 "boonsbanesactive": true,
-                "boonsbanes": ""
+                "boonsbanes": "",
+                "damagetypes": []
             },
             "healing": {
                 "healactive": true,
@@ -279,6 +282,7 @@
                 "rate": ""
             },
             "damage": "",
+            "damagetype": "",
             "bonuses": {
                 "defenseactive": true,
                 "defense": "",
@@ -326,11 +330,6 @@
             "value": ""
         },
         "specialaction": {
-            "templates": [
-                "base"
-            ]
-        },
-        "magic": {
             "templates": [
                 "base"
             ]
@@ -390,7 +389,8 @@
             },
             "languages": "",
             "talents": [],
-            "editTalents": false
+            "editTalents": false,
+            "editAncestry": true
         },
         "profession": {
             "templates": [
@@ -402,7 +402,8 @@
                 "base"
             ],
             "type": "novice",
-            "levels": []
+            "levels": [],
+            "editPath": true
         },
         "creaturerole": {
             "templates": [
