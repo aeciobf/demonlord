@@ -208,7 +208,7 @@ export class DemonlordActor extends Actor {
           parseInt(data.attributes.agility.value) +
           parseInt(ancestry.data.characteristics.defensemodifier)
       }
-
+      /*
       data.characteristics.power = parseInt(
         ancestry.data.characteristics?.power
       )
@@ -216,6 +216,7 @@ export class DemonlordActor extends Actor {
         ancestry.data.characteristics?.speed
       )
       data.characteristics.size = ancestry.data.characteristics.size
+      */
     }
 
     /*
@@ -241,7 +242,9 @@ export class DemonlordActor extends Actor {
     }
 */
     // Paths
-    let pathDefenseBonus = 0
+
+    const pathDefenseBonus = 0
+    /*
     if (data.level > 0) {
       const actor = this
 
@@ -267,7 +270,7 @@ export class DemonlordActor extends Actor {
         })
       }
     }
-
+*/
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (const [key, attribute] of Object.entries(data.attributes)) {
       if (attribute.value > attribute.max) {

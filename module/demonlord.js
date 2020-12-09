@@ -78,7 +78,8 @@ Hooks.once('init', async function () {
       'endoftheround',
       'mod',
       'ancestry',
-      'profession'
+      'profession',
+      'affliction'
     ],
     makeDefault: true
   })
@@ -243,7 +244,7 @@ Hooks.on('updateActor', async (actor, updateData, options, userId) => {
         }
       }
     }
-
+    /*
     const actorData = actor.data
     const injured = CONFIG.DL.statusIcons.blood
     const asleep = CONFIG.DL.statusIcons.asleep
@@ -292,9 +293,10 @@ Hooks.on('updateActor', async (actor, updateData, options, userId) => {
         toggleEffect(t, actorData.data.afflictions.unconscious, unconscious)
       }
     }
+    */
   }
 })
-
+/*
 // Hooks.on('preCreateToken', async (scene, createData, options, userId) => {
 Hooks.on('createToken', async (scene, token) => {
   // When Status Effects exists on the Actor but the token is just created
@@ -353,6 +355,7 @@ Hooks.on('createToken', async (scene, token) => {
 
 Hooks.on('preUpdateToken', async (scene, token, updateData, options) => {
   // When you add/remove a Status Effects directly on the token
+  /*
   const asleep = CONFIG.DL.statusIcons.asleep
   const blinded = CONFIG.DL.statusIcons.blinded
   const charmed = CONFIG.DL.statusIcons.charmed
@@ -417,7 +420,7 @@ Hooks.on('preUpdateToken', async (scene, token, updateData, options) => {
     }
   }
 })
-
+*/
 Hooks.on('renderChatLog', (app, html, data) =>
   DemonlordItem.chatListeners(html)
 )

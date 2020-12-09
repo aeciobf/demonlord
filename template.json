@@ -93,10 +93,17 @@
                     "dying": false
                 },
                 "bonuses": {
-                    "attackbonus": 0,
-                    "challengebonus": 0,
+                    "attackrollbonus": 0,
+                    "attackrollfailure": false,
+                    "challengerollbonus": 0,
+                    "challengerollfailure": false,
                     "damagebonus": "",
-                    "damagebonus20plus": ""
+                    "damagebonus20plus": "",
+                    "strengthrollbonus": 0,    
+                    "agilityrollbonus": 0,  
+                    "intellectrollbonus": 0,  
+                    "willrollbonus": 0,  
+                    "perceptionrollbonus": 0                
                 }
             }
         },
@@ -164,20 +171,21 @@
     },
     "Item": {
         "types": [
-            "item",
+            "ancestry",
+            "path",
             "feature",
-            "spell",
-            "talent",
+            "profession",
             "weapon",
             "armor",
             "ammo",
+            "item",
+            "talent",
+            "spell",
+            "affliction",
             "specialaction",
             "endoftheround",
-            "mod",
-            "ancestry",
-            "profession",
-            "path",
-            "creaturerole"
+            "creaturerole",
+            "mod"
         ],
         "templates": {
             "base": {
@@ -437,6 +445,11 @@
                 "description": "",
                 "spells": []
             }
+        },
+        "affliction": {
+            "templates": [
+                "base"
+            ]
         }
     }
 }

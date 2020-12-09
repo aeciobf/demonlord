@@ -19,7 +19,9 @@ export function onManageActiveEffect (event, owner) {
           origin: owner.uuid,
           'duration.rounds':
             li.dataset.effectType === 'temporary' ? 1 : undefined,
-          disabled: li.dataset.effectType === 'inactive'
+          disabled:
+            li.dataset.effectType === 'inactive' ||
+            li.dataset.effectType === 'affliction'
         },
         owner
       ).create()
@@ -43,29 +45,46 @@ export function prepareActiveEffectCategories (effects) {
     temporary: {
       type: 'temporary',
       label: 'Temporary Effects',
-      effects: []
+      effects: [],
+      isNotAffliction: true
     },
     passive: {
       type: 'passive',
       label: 'Passive Effects',
-      effects: []
+      effects: [],
+      isNotAffliction: true
     },
     inactive: {
       type: 'inactive',
       label: 'Inactive Effects',
-      effects: []
+      effects: [],
+      isNotAffliction: true
+    },
+    affliction: {
+      type: 'affliction',
+      label: 'Afflictions',
+      effects: [],
+      isNotAffliction: false
     }
   }
 
   // Iterate over active effects, classifying them into categories
   for (const e of effects) {
     e._getSourceName()
-    const source = fromUuid(e.data.origin)
-    source.then(function (result) {
-      e.itemtype = result != null ? result.type : e.sourceName
-    })
 
-    if (e.data.disabled) categories.inactive.effects.push(e)
+    const source = e.data.origin ? fromUuid(e.data.origin) : null
+    if (source != null) {
+      source.then(function (result) {
+        e.itemtype = result != null ? result.type : e.sourceName
+      })
+    }
+
+    if (
+      (source != null && e.itemtype === 'affliction' && e.data.disabled) ||
+      (e.data.disabled && e.data.duration.rounds === 99)
+    ) {
+      categories.affliction.effects.push(e)
+    } else if (e.data.disabled) categories.inactive.effects.push(e)
     else if (e.isTemporary) categories.temporary.effects.push(e)
     else categories.passive.effects.push(e)
   }

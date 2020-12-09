@@ -91,7 +91,6 @@ export class DemonlordActorSheet2 extends ActorSheet {
     data.useDemonlordMode = !game.settings.get('demonlord', 'useHomebrewMode')
     data.dtypes = ['String', 'Number', 'Boolean']
     data.effects = prepareActiveEffectCategories(this.entity.effects)
-
     data.actor = duplicate(this.actor.data)
     data.data = data.actor.data
 
