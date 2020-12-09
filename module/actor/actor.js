@@ -28,7 +28,7 @@ export class DemonlordActor extends Actor {
     const data = actorData.data
     data.characteristics.insanity.max = data.attributes.will.value
 
-    const characterbuffs = this.generateCharacterBuffs()
+    // const characterbuffs = this.generateCharacterBuffs()
 
     const ancestries = this.getEmbeddedCollection('OwnedItem').filter(
       (e) => e.type === 'ancestry'
@@ -36,7 +36,7 @@ export class DemonlordActor extends Actor {
 
     let savedAncestry = null
     const pathHealthBonus = 0
-    let ancestryFixedArmor = false
+    const ancestryFixedArmor = false
 
     for (const ancestry of ancestries) {
       savedAncestry = ancestry
@@ -198,6 +198,7 @@ export class DemonlordActor extends Actor {
         parseInt(data.attributes.intellect.value) +
         parseInt(ancestry.data.characteristics.perceptionmodifier)
       */
+      /*
       if (parseInt(ancestry.data.characteristics?.defensemodifier) > 10) {
         data.characteristics.defense = parseInt(
           ancestry.data.characteristics?.defensemodifier
@@ -208,6 +209,7 @@ export class DemonlordActor extends Actor {
           parseInt(data.attributes.agility.value) +
           parseInt(ancestry.data.characteristics.defensemodifier)
       }
+      */
       /*
       data.characteristics.power = parseInt(
         ancestry.data.characteristics?.power
@@ -312,6 +314,7 @@ export class DemonlordActor extends Actor {
       }
     }
 
+    /*
     if (ancestryFixedArmor) {
       data.characteristics.defense +=
         pathDefenseBonus + defenseBonus + characterbuffs.defensebonus
@@ -329,10 +332,8 @@ export class DemonlordActor extends Actor {
         pathDefenseBonus +
         characterbuffs.defensebonus
     }
-
-    if (data.characteristics.defense > 25) data.characteristics.defense = 25
-
-    characterbuffs.speedbonus += speedPenalty
+*/
+    // characterbuffs.speedbonus += speedPenalty
 
     /*
 
@@ -344,6 +345,7 @@ export class DemonlordActor extends Actor {
     */
 
     // Afflictions
+    /*
     if (data.afflictions.slowed) {
       data.characteristics.speed = Math.floor(
         parseInt(data.characteristics.speed + speedPenalty) / 2
@@ -366,6 +368,10 @@ export class DemonlordActor extends Actor {
     if (data.afflictions.immobilized) data.characteristics.speed = 0
 
     if (data.afflictions.unconscious) data.characteristics.defense = 5
+    */
+
+    data.characteristics.defense += parseInt(data.attributes.agility.value)
+    if (data.characteristics.defense > 25) data.characteristics.defense = 25
   }
 
   async createItemCreate (event) {
